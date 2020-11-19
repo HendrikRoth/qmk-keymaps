@@ -14,6 +14,8 @@ extern uint8_t is_master;
 #define MY_MINS   RGUI_T(DE_MINS)
 #define MY_PLUS   RSFT_T(DE_PLUS)
 #define MY_ACUT   LALT_T(DE_ACUT)
+#define MY_Y LGUI_T(KC_Y)
+#define MY_T LCTL_T(KC_T)
 
 enum corne_layers {
     _BASE,
@@ -74,13 +76,13 @@ combo_t key_combos[COMBO_COUNT] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-------------------------------------------------------.
-       MY_TAB,    DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,                         DE_Y,    DE_U,    KC_I,    KC_0,   KC_P,  MY_DEL,  \
+       MY_TAB,    DE_Q,    DE_W,    DE_E,    DE_R,    MY_T,                         MY_Y,    DE_U,    KC_I,    KC_O,   KC_P,  MY_DEL,  \
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+----------|
       KC_LCTL,    DE_A,    DE_S,    DE_D,    DE_F,    DE_G,                         DE_H,    DE_J,    KC_K,    KC_L, KC_SCLN, MY_PLUS, \
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+----------|
       KC_LSFT,    DE_Z,    DE_X,    DE_C,    DE_V,    DE_B,                         DE_N,    DE_M, DE_COMM,  DE_DOT, MY_MINS, KC_RCTRL,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+----------|
-                                          KC_LGUI,   MY_ESC,  MY_ENT,     MY_SPC,  MY_BSPC,  MY_ESC \
+                                          KC_LGUI,   MY_ESC,  MY_ENT,     MY_SPC,  KC_BSPC,  KC_RGUI \
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -111,9 +113,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NAVIGATION] = LAYOUT_split_3x6_3( \
   //,---------------------------------------------------.              ,----------------------------------------------------.
-      ____, KC_PGUP, KC_HOME, KC_UP,   KC_END,   KC_BSPC,               KC_BSPC, KC_HOME,  KC_UP,  KC_END,   KC_PGUP, ____,\
+      ____, KC_PGUP, KC_HOME, KC_UP,   KC_END,   KC_BSPC,               KC_BSPC, KC_PGUP,  KC_DEL, KC_END,   KC_PGUP, ____,\
   //|------+--------+--------+--------+---------+-------|              |--------+--------+--------+---------+--------+-----|
-      ____, KC_PGDN, KC_LEFT, KC_DOWN, KC_RIGHT, KC_DEL,                KC_DEL,  KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN, ____,\
+      ____, KC_PGDN, KC_LEFT, KC_PGDN, KC_RIGHT, KC_DEL,                KC_LEFT,  KC_DOWN, KC_UP,  KC_RIGHT, KC_PGDN, ____,\
   //|------+--------+--------+--------+---------+-------|              |--------+--------+--------+---------+--------+-----/
       RESET, ____,    ____,    ____,    ____,     ____,                  ____,    ____,    ____,    ____,     ____,   ____,\
   //|------+--------+--------+--------+---------+-------+-----|  |-----+--------+--------+--------+---------+--------+-----|
